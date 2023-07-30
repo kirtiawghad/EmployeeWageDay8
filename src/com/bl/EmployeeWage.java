@@ -13,14 +13,19 @@ public class EmployeeWage {
       int empCheck = (int)(Math.random()*10%3);
         System.out.println("random is :" + empCheck);
 
-      if (empCheck == obj.is_full_time){
-           obj.emphrs = 8;
-      } else if (empCheck == obj.is_part_time) {
-          obj.emphrs = 4;
-      } else {
-          obj.emphrs = 0;
+     switch (empCheck){
+         case 2:
+         obj.emphrs = 8;
+         break;
 
-      }
+         case 1:
+             obj.emphrs = 4;
+             break;
+
+         default:
+             obj.emphrs = 0;
+
+     }
 
       obj.empwage = obj.emphrs * obj.per_hrs_rate;
 
