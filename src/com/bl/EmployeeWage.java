@@ -2,39 +2,50 @@ package com.bl;
 
 public class EmployeeWage {
 
-    int is_full_time = 2;
-    int is_part_time = 1;
-    int per_hrs_rate = 20;
-    int working_Day_per_Month = 20;
-    int emphrs;
-    int empwage = 0;
+ int IS_FULL_TIME = 2;
+ int IS_PART_TIME = 1;
+ int EMP_RATE_PER_HOUR = 20;
+ int EMP_WORKING_DAY = 20;
+ int EMP_WORKING_HRS= 100;
 
-    int totalwage = 0;
     public static void main(String[] args) {
-        EmployeeWage obj = new EmployeeWage();
+EmployeeWage obj = new EmployeeWage();
+        int empHrs = 0;
+        int totalEmpHrs = 0;
+        int totalEmpDays = 0;
 
-        for (int i = 1; i <= obj.working_Day_per_Month; i++) {
-            int empCheck = (int) (Math.random() * 10 % 3);
+        while (totalEmpHrs <= obj.EMP_WORKING_HRS && totalEmpDays < obj.EMP_WORKING_DAY){
 
-            if (empCheck == obj.is_full_time) {
-                obj.emphrs = 8;
-            } else if (empCheck == obj.is_part_time) {
+            totalEmpDays++;
 
-                obj.emphrs = 4;
+            int empCheck = (int) (Math.floor(Math.random() * 10) % 3);
 
-            } else {
-                obj.emphrs = 0;
+            switch (empCheck) {
+
+                case 1:
+
+                    empHrs = 4;
+                    break;
+
+                case 2:
+
+                    empHrs = 8;
+                    break;
+
+
+                default:
+                    empHrs = 0;
+
             }
-
-            obj.empwage = obj.emphrs * obj.per_hrs_rate;
-            obj.totalwage = obj.totalwage + obj.empwage;
-            System.out.println("employee wage is :" + obj.empwage);
-
-        }
-            System.out.println("total wage :" + obj.totalwage);
+            totalEmpHrs = empHrs + totalEmpHrs;
+            System.out.println("day "+totalEmpDays+ ": " +totalEmpHrs + " Hours");
 
         }
 
+        int empwage = totalEmpHrs * obj.EMP_RATE_PER_HOUR;
+        System.out.println(empwage);
+
+    }
 
     }
 
