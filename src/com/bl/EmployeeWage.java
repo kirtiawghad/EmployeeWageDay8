@@ -9,7 +9,7 @@ public class EmployeeWage {
     public static final int EMP_WORKING_HRS= 100;
 
 
-    public void empWageMethod(){
+    public static void empWageMethod(){
 
         int empHrs = 0;
         int totalEmpHrs = 0;
@@ -50,10 +50,7 @@ public class EmployeeWage {
 
     public static void main(String[] args) {
 
-        EmployeeWage obj = new EmployeeWage();
-        obj.empWageMethod();
-
-
+       EmployeeWage.empWageMethod();
 
     }
 
